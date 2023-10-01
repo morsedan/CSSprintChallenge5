@@ -1,4 +1,3 @@
-#  Hint:  You may not need all of these.  Remove the unused functions.
 class Ticket:
     def __init__(self, source, destination):
         self.source = source
@@ -6,9 +5,17 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    route = ['NONE'] * length
+    ticket_dict = {}
+    
+    for ticket in tickets:
+        ticket_dict[ticket.source] = ticket.destination
+    
+    current_airport = ticket_dict['NONE']
+    i = 0
+    while current_airport != 'NONE':
+        route[i] = (current_airport)
+        current_airport = ticket_dict[current_airport]
+        i += 1
 
     return route

@@ -1,8 +1,17 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result = []
+    number_counts = {}
+    
+    for array in arrays:
+        for number in array:
+            if number in number_counts:
+                number_counts[number] += 1
+            else:
+                number_counts[number] = 1
+    
+    for num, count in number_counts.items():
+        if count > 1:
+            result.append(num)
 
     return result
 
